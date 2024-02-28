@@ -1,0 +1,111 @@
+###
+### hermes create connection
+###
+
+2024-02-26T17:55:24.121163Z  INFO ThreadId(01) Creating new clients hosted on chains theta-testnet-001 and shielded-expedition.88f17d1d14
+2024-02-26T17:55:27.902802Z  INFO ThreadId(01) foreign_client.create{client=shielded-expedition.88f17d1d14->theta-testnet-001:07-tendermint-0}: 🍭 client was created successfully id=07-tendermint-3224
+2024-02-26T17:55:55.631950Z  INFO ThreadId(01) foreign_client.create{client=theta-testnet-001->shielded-expedition.88f17d1d14:07-tendermint-0}: 🍭 client was created successfully id=07-tendermint-1743
+2024-02-26T17:56:00.692645Z  INFO ThreadId(01) 🥂 theta-testnet-001 => OpenInitConnection(OpenInit { Attributes { connection_id: connection-3398, client_id: 07-tendermint-3224, counterparty_connection_id: None, counterparty_client_id: 07-tendermint-1743 } }) at height 0-20474263
+2024-02-26T17:56:42.987485Z  INFO ThreadId(01) 🥂 shielded-expedition.88f17d1d14 => OpenTryConnection(OpenTry { Attributes { connection_id: connection-729, client_id: 07-tendermint-1743, counterparty_connection_id: connection-3398, counterparty_client_id: 07-tendermint-3224 } }) at height 0-73301
+2024-02-26T17:57:39.261527Z  INFO ThreadId(01) 🥂 theta-testnet-001 => OpenAckConnection(OpenAck { Attributes { connection_id: connection-3398, client_id: 07-tendermint-3224, counterparty_connection_id: connection-729, counterparty_client_id: 07-tendermint-1743 } }) at height 0-20474281
+2024-02-26T17:58:11.093446Z  INFO ThreadId(01) 🥂 shielded-expedition.88f17d1d14 => OpenConfirmConnection(OpenConfirm { Attributes { connection_id: connection-729, client_id: 07-tendermint-1743, counterparty_connection_id: connection-3398, counterparty_client_id: 07-tendermint-3224 } }) at height 0-73308
+2024-02-26T17:58:14.916543Z  INFO ThreadId(01) connection handshake already finished for Connection { delay_period: 0ns, a_side: ConnectionSide { chain: BaseChainHandle { chain_id: theta-testnet-001 }, client_id: 07-tendermint-3224, connection_id: connection-3398 }, b_side: ConnectionSide { chain: BaseChainHandle { chain_id: shielded-expedition.88f17d1d14 }, client_id: 07-tendermint-1743, connection_id: connection-729 } }
+SUCCESS Connection {
+    delay_period: 0ns,
+    a_side: ConnectionSide {
+        chain: BaseChainHandle {
+            chain_id: ChainId {
+                id: "theta-testnet-001",
+                version: 0,
+            },
+            runtime_sender: Sender { .. },
+        },
+        client_id: ClientId(
+            "07-tendermint-3224",
+        ),
+        connection_id: Some(
+            ConnectionId(
+                "connection-3398",
+            ),
+        ),
+    },
+    b_side: ConnectionSide {
+        chain: BaseChainHandle {
+            chain_id: ChainId {
+                id: "shielded-expedition.88f17d1d14",
+                version: 0,
+            },
+            runtime_sender: Sender { .. },
+        },
+        client_id: ClientId(
+            "07-tendermint-1743",
+        ),
+        connection_id: Some(
+            ConnectionId(
+                "connection-729",
+            ),
+        ),
+    },
+}
+
+###
+### hermes create channel
+###
+
+2024-02-26T18:01:01.285550Z  INFO ThreadId(01) 🎊  theta-testnet-001 => OpenInitChannel(OpenInit { port_id: transfer, channel_id: channel-3896, connection_id: None, counterparty_port_id: transfer, counterparty_channel_id: None }) at height 0-20474318
+2024-02-26T18:01:35.945834Z  INFO ThreadId(01) 🎊  shielded-expedition.88f17d1d14 => OpenTryChannel(OpenTry { port_id: transfer, channel_id: channel-488, connection_id: connection-729, counterparty_port_id: transfer, counterparty_channel_id: channel-3896 }) at height 0-73326
+2024-02-26T18:01:55.913048Z  INFO ThreadId(01) 🎊  theta-testnet-001 => OpenAckChannel(OpenAck { port_id: transfer, channel_id: channel-3896, connection_id: connection-3398, counterparty_port_id: transfer, counterparty_channel_id: channel-488 }) at height 0-20474328
+2024-02-26T18:02:19.767396Z  INFO ThreadId(01) 🎊  shielded-expedition.88f17d1d14 => OpenConfirmChannel(OpenConfirm { port_id: transfer, channel_id: channel-488, connection_id: connection-729, counterparty_port_id: transfer, counterparty_channel_id: channel-3896 }) at height 0-73330
+2024-02-26T18:02:22.983380Z  INFO ThreadId(01) channel handshake already finished for Channel { ordering: ORDER_UNORDERED, a_side: ChannelSide { chain: BaseChainHandle { chain_id: theta-testnet-001 }, client_id: 07-tendermint-3224, connection_id: connection-3398, port_id: transfer, channel_id: channel-3896, version: None }, b_side: ChannelSide { chain: BaseChainHandle { chain_id: shielded-expedition.88f17d1d14 }, client_id: 07-tendermint-1743, connection_id: connection-729, port_id: transfer, channel_id: channel-488, version: None }, connection_delay: 0ns }
+SUCCESS Channel {
+    ordering: Unordered,
+    a_side: ChannelSide {
+        chain: BaseChainHandle {
+            chain_id: ChainId {
+                id: "theta-testnet-001",
+                version: 0,
+            },
+            runtime_sender: Sender { .. },
+        },
+        client_id: ClientId(
+            "07-tendermint-3224",
+        ),
+        connection_id: ConnectionId(
+            "connection-3398",
+        ),
+        port_id: PortId(
+            "transfer",
+        ),
+        channel_id: Some(
+            ChannelId(
+                "channel-3896",
+            ),
+        ),
+        version: None,
+    },
+    b_side: ChannelSide {
+        chain: BaseChainHandle {
+            chain_id: ChainId {
+                id: "shielded-expedition.88f17d1d14",
+                version: 0,
+            },
+            runtime_sender: Sender { .. },
+        },
+        client_id: ClientId(
+            "07-tendermint-1743",
+        ),
+        connection_id: ConnectionId(
+            "connection-729",
+        ),
+        port_id: PortId(
+            "transfer",
+        ),
+        channel_id: Some(
+            ChannelId(
+                "channel-488",
+            ),
+        ),
+        version: None,
+    },
+    connection_delay: 0ns,
+}
